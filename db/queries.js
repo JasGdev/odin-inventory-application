@@ -6,7 +6,6 @@ exports.addGame = async (
 	release_year,
 	price,
 	genres,
-	platforms,
 ) => {
 	// insert game
 	const { rows } = await pool.query(
@@ -39,29 +38,6 @@ exports.addGame = async (
             VALUES ($1, $2)   
             `,
 				[gameId, genreId],
-			);
-		}),
-	);
-
-	// insert platforms
-	await Promise.all(
-		platforms.map(async (platform) => {
-			const { rows } = await pool.query(
-				`
-            INSERT INTO platforms (name)
-            VALUES ($1)
-            RETURNING id
-            `,
-				[platform],
-			);
-			const platformId = rows[0].id;
-
-			await pool.query(
-				`
-            INSERT INTO game_platform (game_id, platform_id)
-            VALUES ($1, $2)   
-            `,
-				[gameId, platformId],
 			);
 		}),
 	);

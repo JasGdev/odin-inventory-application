@@ -9,18 +9,15 @@ From homepage can choose category to view
 
 ## Game Library Management App
 
-### Have tables: Games, genres, Platforms
-- game can have multiple genres and be on multiple platforms
+### Have tables: Games, genres
+- game can have multiple genres 
 
 games: id, title, release_year, price
 
 genres: id, name
 
-platforms: id, name
-
 game_genres: game_id, genre_id
 
-game_platforms: game_id, platform_id
 
 ## Home Page
 

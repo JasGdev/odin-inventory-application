@@ -4,10 +4,8 @@ const { Client } = require('pg');
 
 const SQL = `
 DROP TABLE IF EXISTS game_genres;
-DROP TABLE IF EXISTS game_platforms;
 DROP TABLE IF EXISTS games;
 DROP TABLE IF EXISTS genres;
-DROP TABLE IF EXISTS platforms;
 
 CREATE TABLE IF NOT EXISTS games (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -21,11 +19,6 @@ CREATE TABLE IF NOT EXISTS genres (
     name VARCHAR ( 255 ) NOT NULL UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS platforms (
-    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR ( 255 ) NOT NULL UNIQUE
-);
-
 CREATE TABLE IF NOT EXISTS game_genre (
     game_id INT,
     genre_id INT,
@@ -33,15 +26,6 @@ CREATE TABLE IF NOT EXISTS game_genre (
     FOREIGN KEY (game_id) REFERENCES games(id),
     FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
-
-CREATE TABLE IF NOT EXISTS game_platform (
-    game_id INT,
-    platform_id INT,
-    PRIMARY KEY (game_id, platform_id),
-    FOREIGN KEY (game_id) REFERENCES games(id),
-    FOREIGN KEY (platform_id) REFERENCES platforms(id)
-);
-
 `;
 
 async function main() {
