@@ -12,7 +12,7 @@ From homepage can choose category to view
 ### Have tables: Games, genres, Platforms
 - game can have multiple genres and be on multiple platforms
 
-games: id, title, description, release_year, price
+games: id, title, release_year, price
 
 genres: id, name
 
@@ -21,5 +21,7 @@ platforms: id, name
 game_genres: game_id, genre_id
 
 game_platforms: game_id, platform_id
+
+## Home Page
 
 
