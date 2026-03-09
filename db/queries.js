@@ -66,3 +66,10 @@ async function addGame(
 		}),
 	);
 }
+
+async function getAllGames(){
+    const {rows} = await pool.query(`
+        SELECT * FROM games
+        `)
+    return rows
+}
