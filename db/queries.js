@@ -1,13 +1,13 @@
 const pool = require('./pool');
 
 // Create Read Update Delete
-async function addGame(
+exports.addGame = async (
 	title,
 	release_year,
 	price,
 	genres,
 	platforms,
-) {
+) => {
 	// insert game
 	const { rows } = await pool.query(
 		`
@@ -67,9 +67,10 @@ async function addGame(
 	);
 }
 
-async function getAllGames(){
+exports.getAllGames = async() =>{
     const {rows} = await pool.query(`
         SELECT * FROM games
         `)
     return rows
 }
+

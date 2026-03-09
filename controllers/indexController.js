@@ -1,1 +1,3 @@
-const db = require('../db/queries');
+exports.indexGet = (req, res) => {
+    res.render('index')
+}
