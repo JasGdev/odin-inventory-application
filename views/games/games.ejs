@@ -8,18 +8,19 @@
 		/>
 		<title>Document</title>
 		<link rel="stylesheet" href="/css/reset.css">
-		<link rel="stylesheet" href="/css/newGame.css">
+		<link rel="stylesheet" href="/css/games.css">
 	</head>
 	<body>
 		<%- include('../partials/navigation')%>
-		
-		
+		<div class="container">
+
 		
 
 		<h3>Add Game:</h3>
 		<form method="POST" action="/games/new">
 			<label for="title">Title: </label>
 			<input type="text" name="title" id="title" />
+			
 			<label for="release_year">Release Year: </label>
 			<input
 				type="number"
@@ -44,6 +45,10 @@
 			
 			<button type="submit">Add</button>
 		</form>
+
+		</div>
+		
+		
 
 	</body>
 </html>

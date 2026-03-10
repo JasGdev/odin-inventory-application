@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.gameItem, .genreItem{
+.gameItem{
     display: flex;
 }
 
@@ -20,3 +20,4 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+

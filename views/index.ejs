@@ -13,18 +13,7 @@
 	<body>
 		<%- include('partials/navigation')%>
 		<div class="container">
-<h1>Genres: </h1>
-		<div class="genresContainer">
-			<% genres.forEach((genre) => { %>
-            <div class="genreItem">
-                <a href=""><%=  genre.name %> </a>
-                
-                <form method="POST" action="/genres/delete/<%= genre.id %>">
-                    <button type="submit">X</button>
-                </form>
-            </div>
-	<% }) %>
-		</div>
+			
 		
 
 		<h1>Games:</h1>
