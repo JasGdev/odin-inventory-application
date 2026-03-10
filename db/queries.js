@@ -41,12 +41,29 @@ exports.addGame = async (
 			);
 		}),
 	);
-}
+};
 
-exports.getAllGames = async() =>{
-    const {rows} = await pool.query(`
+exports.getAllGames = async () => {
+	const { rows } = await pool.query(`
         SELECT * FROM games
-        `)
-    return rows
-}
+        `);
+	return rows;
+};
 
+
+
+exports.getAllGenres = async () => {
+	const { rows } = await pool.query(`
+		SELECT * FROM genres`);
+	return rows;
+};
+
+exports.addGenre = async (genre) => {
+	await pool.query(
+		`
+        INSERT INTO genres (name)
+        VALUES ($1)
+        `,
+		[genre],
+	);
+};

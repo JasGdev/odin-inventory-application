@@ -19,6 +19,5 @@ genres: id, name
 game_genres: game_id, genre_id
 
 
-## Home Page
 
 
