@@ -70,16 +70,34 @@ exports.getAllGames = async () => {
 };
 
 exports.getAllGenres = async () => {
+	// display how many games are in the genre
 	const { rows } = await pool.query(`
 		SELECT * FROM genres`);
 	return rows;
 };
 
 exports.getGame = async (gameId) => {
-	await pool.query(`
-		SELECT * FROM games 
-		WHERE id = $1
+	const {rows} = await pool.query(`
+		SELECT games.*, array_agg(genres.name) AS genres
+		FROM games
+		LEFT JOIN game_genre ON games.id = game_genre.game_id
+		LEFT JOIN genres ON genres.id = game_genre.genre_id
+		WHERE games.id = $1
+		GROUP BY games.id
 		`, [gameId])
+
+	return rows[0]
+}
+
+exports.getAllGamesInGenre = async (genreId) => {
+	const {rows} = await pool.query(`
+		SELECT games.* AS games
+		FROM games
+		LEFT JOIN game_genre ON games.id = game_genre.game_id
+		WHERE game_genre.genre_id = $1
+		`, [genreId])
+
+	return rows
 }
 
 // UPDATE

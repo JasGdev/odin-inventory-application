@@ -1,3 +1,3 @@
-1. Implement add game form
-    - Include add genre form
-2. add READ for games and genres
+1. Click on game for details 
+2. Add edit for games/genres
+3. display number of games in each genre

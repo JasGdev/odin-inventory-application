@@ -14,13 +14,26 @@
 		<h1>Games:</h1>
 		<div>
 			<% games.forEach((game) => { %>
-				<div>Id: <%= game.id%> Title: <%= game.title%>  
-				Release Year: <%= game.release_year%> Price: <%= game.price%>
-				Genre: <%= game.genres.join(', ') %> 
+			
+				<div class="gameItem">
+					<div>
+						Title: <%= game.title%>  
+						Release Year: <%= game.release_year%> 
+						Price: <%= game.price%>
+						Genre: <%= game.genres.join(', ') %> 
+					</div>
+
+					<form action="/games/delete/<%= game.id %>" method="POST">
+						<button type="submit">X</button>
+					</form>
+
+
+					<form action="/games/details/<%= game.id %>" method="GET">
+						<button type="submit">Details</button>
+					</form>
+
 				</div>
-				<form action="/games/delete/<%= game.id %>" method="POST">
-					<button type="submit">X</button>
-				</form>
+				
 
 			<% }) %>
 
