@@ -26,6 +26,19 @@ CREATE TABLE IF NOT EXISTS game_genre (
     FOREIGN KEY (game_id) REFERENCES games(id) ON DELETE CASCADE,
     FOREIGN KEY (genre_id) REFERENCES genres(id) ON DELETE CASCADE
 );
+
+INSERT INTO genres (name) VALUES
+  ('Action'),
+  ('RPG'),
+  ('Horror');
+
+INSERT INTO games (title, release_year, price) VALUES
+  ('Elden Ring', 2022, 59.99),
+  ('GTA V', 2013, 29.99);
+
+INSERT INTO game_genre (game_id, genre_id) VALUES
+  (1, 1),
+  (2, 2);
 `;
 
 async function main() {
@@ -40,7 +53,12 @@ async function main() {
 	await client.connect();
 	await client.query(SQL);
 	await client.end();
+
+
+
 	console.log('done');
+
+
 }
 
 main();
