@@ -11,11 +11,12 @@
     <% genres.forEach((genre) => { %>
             <div>
                 <a href="">id: <%= genre.id%> name: <%=  genre.name %> </a>
-                <button>X</button>
+                
+                <form method="POST" action="/genres/delete/<%= genre.id %>">
+                    <button type="submit">X</button>
+                </form>
             </div>
-            
-				
-	    <% }) %>
+	<% }) %>
 
     <h1>Add Genre:</h1>
 		<form method="POST" action="/genres/new" >
@@ -23,7 +24,7 @@
 			<input type="text" name="genre" id="genre" />
 			<button type="submit">Add</button>
 		</form>
-        <a href="/">Home</a>
+    <a href="/">Home</a>
     
 </body>
 </html>
