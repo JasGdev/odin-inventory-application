@@ -13,16 +13,29 @@
 	<body>
 		<%- include('partials/navigation')%>
 		<div class="container">
-			
+		
+			<form class="genresFilter" action="/" method="GET">
+
+				<label for="genres">Genres: </label>
+                    <% genres.forEach((genre) => { %>
+                        <div>
+							<label for="<%= genre.id %>"><%= genre.name %></label>
+                            <input onchange="this.form.submit()" type="checkbox" name="genres" value="<%= genre.name %>" id="<%= genre.id %>"
+							 <%= genresFilter.includes(genre.name) ? 'checked' : '' %>>
+							
+                        </div>
+						 <% }) %>
+			</form>
+		
 		
 
 		<h1>Games:</h1>
 		<div class="gameItem">
 			<div class="gameInfoContainer">
-				<div>Title</div>
-				<div>Release Year</div>
-				<div>Price</div>
-				<div>Genre</div>
+				<div><b>Title</b></div>
+				<div><b>Release Year</b></div>
+				<div><b>Price</b></div>
+				<div><b>Genre</b></div>
 			</div>
 		</div>
 		<div>
