@@ -1,8 +1,9 @@
 const db = require('../db/queries');
 
-exports.gamesGet = async (req, res) => {
+exports.allGamesGet = async (req, res) => {
+    const genres = await db.getAllGenres()
     const games = await db.getAllGames()
-    res.render('games/games', )
+    res.render('games/games',{genres})
 }
 
 exports.newGameGet =async (req, res) => {
