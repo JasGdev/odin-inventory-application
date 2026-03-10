@@ -6,7 +6,7 @@ exports.newGenrePost = async (req, res) => {
     console.log(await db.getAllGenres())
     const genre = req.body.genre;
     await db.addGenre(genre)
-    res.redirect('/new')
+    res.redirect('/genres')
 }
 
 exports.allGenresGet = async (req, res) => {
