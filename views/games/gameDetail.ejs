@@ -7,12 +7,15 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Document</title>
-        <link rel="stylesheet" href="/public/css/reset.css">
-        <link rel="stylesheet" href="/public/css/gameDetail.css">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/gameDetail.css">
 	</head>
 	<body>
-		<h1>Details</h1>
-        <form method="POST" action="/games/new">
+        <%- include('../partials/navigation')%>
+
+        <div class="container">
+            <h1>Details</h1>
+        <form method="POST" action="/games/edit/<% game.id %>">
             <div class="detailsContainer">
                 <label for="title">Title: </label>
                 <input type="text" name="title" id="title" value=<%= game.title%>  />
@@ -43,12 +46,14 @@
 			</div>
 			
 			<button type="submit">Submit</button>
+
             </div>
+
+            
 			
 		</form>
+        </div>
 
-		<div>
-            Genre: <%= game.genres.join(', ') %>
-		</div>
+		
 	</body>
 </html>

@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="/css/newGame.css">
 	</head>
 	<body>
+		<%- include('../partials/navigation')%>
 		<h1>Games:</h1>
 		<div>
 			<% games.forEach((game) => { %>
@@ -70,6 +71,5 @@
 			<button type="submit">Add</button>
 		</form>
 
-		<a href="/">Home</a>
 	</body>
 </html>

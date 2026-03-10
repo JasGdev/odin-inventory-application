@@ -1,5 +1,10 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .detailsContainer {
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+    align-items: center;
 }
