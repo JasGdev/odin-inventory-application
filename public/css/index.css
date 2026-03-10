@@ -1,0 +1,22 @@
+.genresCheckboxContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.gameItem, .genreItem{
+    display: flex;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gameItem {
+    width: 700px;
+}
+.gameInfoContainer{
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

@@ -14,13 +14,13 @@ exports.newGamePost = async (req, res) => {
 	if (!Array.isArray(genres)) genres = [genres];
 	// implement genres selection from form
 	await db.addGame(title, release_year, price, genres);
-	res.redirect('/games');
+	res.redirect('/');
 };
 
 exports.deleteGamePost = async (req, res) => {
 	const id = req.params.id;
 	await db.deleteGame(id);
-	res.redirect('/games');
+	res.redirect('/');
 };
 
 exports.gameDetailsGet = async (req, res) => {
@@ -36,8 +36,6 @@ exports.gameEditPost = async (req, res) => {
 	const price = req.body.price;
     let genres = req.body.genres;
 	if (!Array.isArray(genres)) genres = [genres];
-    console.log(genres)
-
     await db.updateGame(id, title, release_year, price, genres)
-    res.redirect('/games')
+    res.redirect('/')
 }
