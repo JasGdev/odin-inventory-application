@@ -1,0 +1,4 @@
+.genresCheckboxContainer{
+    display: flex;
+    flex-direction: column;
+}

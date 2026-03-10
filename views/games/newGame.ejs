@@ -7,6 +7,8 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Document</title>
+		<link rel="stylesheet" href="/css/reset.css">
+		<link rel="stylesheet" href="/css/newGame.css">
 	</head>
 	<body>
 		<h1>Add Game:</h1>
@@ -21,8 +23,17 @@
 			/>
 			<label for="price">Price: </label>
 			<input type="number" name="price" id="price" />
-			<label for="genres">Genres: </label>
-			<input type="checkbox" name="genres" id="genres" />
+			
+			<div class="genresCheckboxContainer">
+				<label for="genres">Genres: </label>
+				<% genres.forEach((genre) => { %>
+					<div><input type="checkbox" name="genres" value="<%= genre.name %>" id="<%= genre.id %>">
+    			<label for="<%= genre.id %>"><%= genre.name %></label></div>
+				
+			<% }) %>
+
+			</div>
+			
 			<button type="submit">Add</button>
 		</form>
 

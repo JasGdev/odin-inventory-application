@@ -5,8 +5,9 @@ exports.gamesGet = async (req, res) => {
     res.render('games/games', )
 }
 
-exports.newGameGet = (req, res) => {
-    const genres = db.getAllGenres()
+exports.newGameGet =async (req, res) => {
+    const genres = await db.getAllGenres()
+
     res.render('games/newGame', {genres})
 }
 

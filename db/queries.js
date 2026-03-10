@@ -50,8 +50,6 @@ exports.getAllGames = async () => {
 	return rows;
 };
 
-
-
 exports.getAllGenres = async () => {
 	const { rows } = await pool.query(`
 		SELECT * FROM genres`);
