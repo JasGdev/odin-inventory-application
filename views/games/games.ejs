@@ -12,6 +12,19 @@
 	</head>
 	<body>
 		<h1>Games:</h1>
+		<div>
+			<% games.forEach((game) => { %>
+				<div>Id: <%= game.id%> Title: <%= game.title%>  
+				Release Year: <%= game.release_year%> Price: <%= game.price%> 
+				</div>
+				<form action="/games/delete/<%= game.id %>" method="POST">
+					<button type="submit">X</button>
+				</form>
+
+			<% }) %>
+
+		</div>
+		
 		
 
 		<h1>Add Game:</h1>
