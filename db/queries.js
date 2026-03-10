@@ -57,8 +57,14 @@ exports.addGenre = async (genre) => {
 // READ
 
 exports.getAllGames = async () => {
+	// also have column genres with array of all genres that this game has
+
 	const { rows } = await pool.query(`
-        SELECT * FROM games
+        SELECT games.*, array_agg(genres.name) AS genres
+		FROM games
+		LEFT JOIN game_genre ON games.id = game_genre.game_id
+		LEFT JOIN genres ON genres.id = game_genre.genre_id
+		GROUP by games.id
         `);
 	return rows;
 };

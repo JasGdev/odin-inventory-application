@@ -15,7 +15,8 @@
 		<div>
 			<% games.forEach((game) => { %>
 				<div>Id: <%= game.id%> Title: <%= game.title%>  
-				Release Year: <%= game.release_year%> Price: <%= game.price%> 
+				Release Year: <%= game.release_year%> Price: <%= game.price%>
+				Genre: <%= game.genres.join(', ') %> 
 				</div>
 				<form action="/games/delete/<%= game.id %>" method="POST">
 					<button type="submit">X</button>
@@ -27,7 +28,7 @@
 		
 		
 
-		<h1>Add Game:</h1>
+		<h3>Add Game:</h3>
 		<form method="POST" action="/games/new">
 			<label for="title">Title: </label>
 			<input type="text" name="title" id="title" />
@@ -38,7 +39,7 @@
 				id="release_year"
 			/>
 			<label for="price">Price: </label>
-			<input type="number" name="price" id="price" />
+			<input type="number" name="price" id="price" step="0.01"/>
 			
 			<div class="genresCheckboxContainer">
 				<label for="genres">Genres: </label>
