@@ -19,3 +19,10 @@ exports.deleteGenrePost = async (req, res ) => {
     await db.deleteGenre(genreId)
     res.redirect("/")
 }
+
+exports.updateGenrePost = async (req, res) => {
+    const genreId = req.params.id
+    const name = req.body.name
+    await db.updateGenre(genreId, name)
+    res.redirect('/genres')
+}

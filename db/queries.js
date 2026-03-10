@@ -82,7 +82,10 @@ exports.getAllGamesFiltered = async (genresFilter) => {
 exports.getAllGenres = async () => {
 	// display how many games are in the genre
 	const { rows } = await pool.query(`
-		SELECT * FROM genres`);
+		SELECT * FROM genres
+		ORDER BY id	`
+		
+	);
 	return rows;
 };
 
@@ -166,6 +169,16 @@ exports.updateGame = async (
 		}),
 	);
 };
+
+exports.updateGenre = async (genreId, name) => {
+	console.log(genreId)
+	console.log(name)
+	await pool.query(`
+		UPDATE genres
+		SET name = $2
+		WHERE id = $1
+		`, [genreId, name])
+}
 
 // DELETE
 exports.deleteGame = async (gameId) => {
