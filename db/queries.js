@@ -101,6 +101,21 @@ exports.getAllGamesInGenre = async (genreId) => {
 }
 
 // UPDATE
+exports.updateGame = async (id, title, release_year, price, genres) => {
+	await pool.query(`
+		UPDATE games
+		SET title = $2, release_year = $3, price = $4
+		WHERE id = $1;	
+		`, [id, title, release_year, price])
+
+	// remove game_genre not specified in genres, and add if not in game_genre
+	await pool.query(`
+		DELETE FROM game_genre
+		WHERE game_id=$1
+		AND genre_id NOT IN (
+			SELECT id FROM genres WHERE name = ANY($2)
+		)`, [id, genres])
+}
 
 // DELETE
 exports.deleteGame = async (gameId) => {

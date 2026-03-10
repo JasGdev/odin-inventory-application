@@ -57,7 +57,7 @@ h3, h2, h3, h4, h5, h6 {
 }
 
 /* Links */
-a {
+.navigationContainer a {
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: large;
@@ -65,7 +65,7 @@ a {
   display: inline-block;
 }
 
-a:Hover {
+.navigationContainer a:Hover {
   transform: scale(1.1);
   text-decoration: none;
   color: rgb(180, 180, 180);

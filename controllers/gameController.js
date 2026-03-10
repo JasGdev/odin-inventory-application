@@ -31,12 +31,13 @@ exports.gameDetailsGet = async (req, res) => {
 
 exports.gameEditPost = async (req, res) => {
     const id = req.params.id;
-
     const title = req.body.title;
 	const release_year = req.body.release_year;
 	const price = req.body.price;
     let genres = req.body.genres;
 	if (!Array.isArray(genres)) genres = [genres];
+    console.log(genres)
+
     await db.updateGame(id, title, release_year, price, genres)
     res.redirect('/games')
 }
