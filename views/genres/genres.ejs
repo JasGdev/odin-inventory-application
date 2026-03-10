@@ -9,17 +9,6 @@
 <body>
 
     <%- include('../partials/navigation')%>
-    <h1>Genres</h1>
-    <% genres.forEach((genre) => { %>
-            <div>
-                <a href=""><%=  genre.name %> </a>
-                
-                <form method="POST" action="/genres/delete/<%= genre.id %>">
-                    <button type="submit">X</button>
-                </form>
-            </div>
-	<% }) %>
-
     <h3>Add Genre:</h3>
 		<form method="POST" action="/genres/new" >
 			<label for="genre">Genre: </label>
