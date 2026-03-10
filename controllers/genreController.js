@@ -1,8 +1,5 @@
 const db = require('../db/queries');
 
-exports.newGenreGet = async (req, res ) => {
-    res.render('genres/newGenres')
-}
 
 exports.newGenrePost = async (req, res) => {
     console.log(req.body.genre)
@@ -10,4 +7,9 @@ exports.newGenrePost = async (req, res) => {
     const genre = req.body.genre;
     await db.addGenre(genre)
     res.redirect('/new')
+}
+
+exports.allGenresGet = async (req, res) => {
+    const genres = await db.getAllGenres();
+    res.render('genres/genres', {genres})
 }

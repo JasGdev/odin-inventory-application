@@ -1,6 +1,6 @@
 const pool = require('./pool');
 
-// Create Read Update Delete
+// CREATE
 exports.addGame = async (
 	title,
 	release_year,
@@ -43,6 +43,18 @@ exports.addGame = async (
 	);
 };
 
+exports.addGenre = async (genre) => {
+	await pool.query(
+		`
+        INSERT INTO genres (name)
+        VALUES ($1)
+        `,
+		[genre],
+	);
+};
+
+// READ
+
 exports.getAllGames = async () => {
 	const { rows } = await pool.query(`
         SELECT * FROM games
@@ -56,12 +68,31 @@ exports.getAllGenres = async () => {
 	return rows;
 };
 
-exports.addGenre = async (genre) => {
+exports.getGame = async (gameId) => {
+	await pool.query(`
+		SELECT * FROM games 
+		WHERE id = $1
+		`, [gameId])
+}
+
+// UPDATE
+
+// DELETE
+exports.deleteGame = async (gameId) => {
 	await pool.query(
 		`
-        INSERT INTO genres (name)
-        VALUES ($1)
-        `,
-		[genre],
+		DELETE FROM games
+		WHERE id = $1`,
+		[gameId],
+	);
+};
+
+exports.deleteGenre = async (genreId) => {
+	await pool.query(
+		`
+		DELETE FROM genres
+		WHERE id = $1
+		`,
+		[genreId],
 	);
 };

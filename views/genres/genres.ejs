@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/reset.css">
+</head>
+<body>
+    <h1>Genres</h1>
+    <% genres.forEach((genre) => { %>
+            <div>
+                <a href="">id: <%= genre.id%> name: <%=  genre.name %> </a>
+                <button>X</button>
+            </div>
+            
+				
+	    <% }) %>
+
+    <h1>Add Genre:</h1>
+		<form method="POST" action="/genres/new" >
+			<label for="genre">Genre: </label>
+			<input type="text" name="genre" id="genre" />
+			<button type="submit">Add</button>
+		</form>
+        <a href="/">Home</a>
+    
+</body>
+</html>

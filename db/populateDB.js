@@ -3,7 +3,7 @@ require('dotenv').config();
 const { Client } = require('pg');
 
 const SQL = `
-DROP TABLE IF EXISTS game_genres;
+DROP TABLE IF EXISTS game_genre;
 DROP TABLE IF EXISTS games;
 DROP TABLE IF EXISTS genres;
 
@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS game_genre (
     game_id INT,
     genre_id INT,
     PRIMARY KEY (game_id, genre_id),
-    FOREIGN KEY (game_id) REFERENCES games(id),
-    FOREIGN KEY (genre_id) REFERENCES genres(id)
+    FOREIGN KEY (game_id) REFERENCES games(id) ON DELETE CASCADE,
+    FOREIGN KEY (genre_id) REFERENCES genres(id) ON DELETE CASCADE
 );
 `;
 
