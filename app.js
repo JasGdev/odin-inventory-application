@@ -17,9 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use("/games", gameRouter);
 app.use("/genres", genreRouter);
-
-
-
 app.use((err, req, res, next) => {
 	console.error(err);
 	res.status(500).send('ERROR');
